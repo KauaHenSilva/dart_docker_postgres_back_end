@@ -1,15 +1,19 @@
 import 'package:dart_docker_postgres_back_end/api/api.dart';
 import 'package:test/test.dart';
 
+import '../../../mock.dart';
+
 /// Route /clientes
 /// GET: Listar todos os clientes
 /// POST: Adicionar um novo cliente
 
 void main() {
   late ClientesController clientesController;
+  late MockGetClientesUserCase getClientesUseCase;
 
   setUp(() {
-    clientesController = ClientesController();
+    getClientesUseCase = MockGetClientesUserCase();
+    clientesController = ClientesController(getClientesUseCase: getClientesUseCase);
   });
 
   group('ClientesController', () {

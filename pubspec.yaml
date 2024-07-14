@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   args: ^2.4.0
+  mocktail: ^1.0.4
   shelf: ^1.4.0
   shelf_router: ^1.1.0
 

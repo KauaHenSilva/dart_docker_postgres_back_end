@@ -2,6 +2,7 @@ part of '../api.dart';
 
 enum StatusHandler {
   ok,
+  internalServerError,
 }
 
 class ResponseHandler<T> {

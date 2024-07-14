@@ -12,4 +12,18 @@ class ClientesOutputDTO {
     required this.email,
     required this.telefone,
   });
+
+  factory ClientesOutputDTO.toDTO(Cliente cliente) {
+    return ClientesOutputDTO(
+      id: cliente.id,
+      nome: cliente.nome,
+      email: cliente.email,
+      telefone: cliente.telefone,
+    );
+  }
+
+  static List<ClientesOutputDTO> toCollectionDTO(List<Cliente> clientes) {
+    return clientes.map((cliente) => ClientesOutputDTO.toDTO(cliente)).toList();
+  }
+
 }
