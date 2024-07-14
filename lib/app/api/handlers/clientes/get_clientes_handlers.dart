@@ -1,7 +1,7 @@
 part of '../../api.dart';
 
 class GetClientesHandler extends Handlers {
-  final GetClientesUsercase getClientesUseCase;
+  final GetClientesUseCase getClientesUseCase;
   GetClientesHandler({required this.getClientesUseCase});
 
   @override

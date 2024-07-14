@@ -1,7 +1,7 @@
 part of '../../api.dart';
 
 class ClientesController implements Controller {
-  final GetClientesUsercase getClientesUseCase;
+  final GetClientesUseCase getClientesUseCase;
   ClientesController({required this.getClientesUseCase});
 
   @override

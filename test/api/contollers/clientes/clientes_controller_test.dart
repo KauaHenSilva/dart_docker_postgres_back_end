@@ -1,4 +1,5 @@
 import 'package:dart_docker_postgres_back_end/app/api/api.dart';
+import 'package:dart_docker_postgres_back_end/app/domain/domain.dart';
 import 'package:test/test.dart';
 
 import '../../../mock.dart';
@@ -9,7 +10,7 @@ import '../../../mock.dart';
 
 void main() {
   late ClientesController clientesController;
-  late MockGetClientesUserCase getClientesUseCase;
+  late GetClientesUseCase getClientesUseCase;
 
   setUp(() {
     getClientesUseCase = MockGetClientesUserCase();
