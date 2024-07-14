@@ -1,4 +1,4 @@
-import 'package:dart_docker_postgres_back_end/api/api.dart';
+import 'package:dart_docker_postgres_back_end/app/api/api.dart';
 import 'package:test/test.dart';
 
 import '../../../mock.dart';

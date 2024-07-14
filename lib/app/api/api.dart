@@ -1,6 +1,6 @@
 library api;
 
-import 'package:dart_docker_postgres_back_end/domain/domain.dart';
+import 'package:dart_docker_postgres_back_end/app/domain/domain.dart';
 
 part 'contollers/controller.dart';
 part 'contollers/clientes/clientes_controller.dart';
