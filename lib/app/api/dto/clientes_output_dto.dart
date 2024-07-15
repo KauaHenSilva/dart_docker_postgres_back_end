@@ -26,4 +26,12 @@ class ClientesOutputDTO {
     return clientes.map((cliente) => ClientesOutputDTO.toDTO(cliente)).toList();
   }
 
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'nome': nome,
+      'email': email,
+      'telefone': telefone,
+    };
+  }
 }

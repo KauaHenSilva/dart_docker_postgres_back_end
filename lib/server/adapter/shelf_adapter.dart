@@ -20,7 +20,7 @@ class ShelfAdapter {
 
         switch (handler.status) {
           case StatusHandler.ok:
-            return Response.ok(handler.body);
+            return ResponseJSON.ok(handler.body);
           case StatusHandler.internalServerError:
             return Response.internalServerError();
           default:

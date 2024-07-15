@@ -1,3 +1,11 @@
 part of '../config.dart';
 
-final controllers = <Controller>[];
+final controllers = <Controller>[
+  ClientesController(
+    getClientesUseCase: GetClientesServices(
+      getClientesGateway: GetClientesDAO(
+        connection: FakeDb(),
+      ),
+    ),
+  )
+];

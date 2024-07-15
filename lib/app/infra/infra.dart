@@ -5,3 +5,4 @@ import 'package:dart_docker_postgres_back_end/app/domain/domain.dart';
 
 part 'dao/clientes/get_clientes_dao.dart';
 part 'connection/connection.dart';
+part 'connection/fake/fake_db.dart';
