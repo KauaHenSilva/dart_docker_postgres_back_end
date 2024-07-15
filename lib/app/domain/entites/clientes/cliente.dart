@@ -12,4 +12,13 @@ class Cliente {
     required this.email,
     required this.telefone,
   });
+
+  static Cliente fromMap(Map<String, dynamic> row) {
+    return Cliente(
+      id: row['id'],
+      nome: row['nome'],
+      email: row['email'],
+      telefone: row['telefone'],
+    );
+  }
 }
