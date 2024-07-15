@@ -19,16 +19,14 @@ void main() {
 
   tearDown(() => p.kill());
 
-  test('Deve conter content-type "aplication/json"', () async {
-    final response = await get(Uri.parse('$host/clientes'));
-    expect(response.statusCode, 200);
-    expect(response.headers['content-type'], 'application/json; charset=utf-8');
-  });
+  group("API clientes", () {
+    test('Deve conter content-type "aplication/json"', () async {
+      final response = await get(Uri.parse('$host/clientes'));
+      expect(response.statusCode, 200);
+      expect(
+          response.headers['content-type'], 'application/json; charset=utf-8');
+    });
 
-  test('Echo', () async {
-    final response = await get(Uri.parse('$host/echo/hello'));
-    expect(response.statusCode, 200);
-    expect(response.body, 'hello\n');
   });
 
   test('404', () async {

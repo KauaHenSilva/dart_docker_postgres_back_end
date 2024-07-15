@@ -1,7 +1,7 @@
 part of '../../infra.dart';
 
 class GetClientesDAO implements GetClientesGateway {
-  final Connection connection;
+  final MyConnection connection;
   GetClientesDAO({required this.connection});
 
   @override

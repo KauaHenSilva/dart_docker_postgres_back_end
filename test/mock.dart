@@ -7,4 +7,4 @@ class MockGetClientesUserCase extends Mock implements GetClientesUseCase {}
 
 class MockGetClientesGateway extends Mock implements GetClientesGateway {}
 
-class MockConnection extends Mock implements Connection {}
+class MockConnection extends Mock implements MyConnection {}
