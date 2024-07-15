@@ -3,7 +3,7 @@ import 'package:dart_docker_postgres_back_end/app/domain/domain.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
-import '../../../mock.dart';
+import '../../../../mock.dart';
 
 void main() {
   late GetClientesHandler handler;
