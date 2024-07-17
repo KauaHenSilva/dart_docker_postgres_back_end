@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: docker
+    ports:
+      - 5432:5432
+
+    volumes:
+      - ./migrations/0001_creat_table_clientes.sql:/docker-entrypoint-initdb.d/0001_creat_table_clientes.sql
+
+# sudo docker exec -it dart_docker_postgres_back_end_db_1 bash
+# psql -U postgres
+# SELECT * FROM clientes

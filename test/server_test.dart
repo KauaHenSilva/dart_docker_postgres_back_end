@@ -24,7 +24,7 @@ void main() {
       final response = await get(Uri.parse('$host/clientes'));
       expect(response.statusCode, 200);
       expect(
-          response.headers['content-type'], 'application/json; charset=utf-8');
+          response.headers['content-type'], 'application/json');
     });
 
   });

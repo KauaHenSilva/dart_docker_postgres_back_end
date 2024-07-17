@@ -4,7 +4,7 @@ final controllers = <Controller>[
   ClientesController(
     getClientesUseCase: GetClientesServices(
       getClientesGateway: GetClientesDAO(
-        connection: FakeDb(),
+        connection: PostgreSQL(),
       ),
     ),
   )

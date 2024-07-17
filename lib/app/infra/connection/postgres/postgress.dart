@@ -21,11 +21,14 @@ class PostgreSQL implements MyConnection {
         password: 'docker',
         port: 5432,
       ),
+      settings: ConnectionSettings(
+        sslMode: SslMode.disable,
+      ),
     );
 
     List<Map<String, dynamic>> map = [];
 
-    final rows = await _connection!.execute(query, parameters: params);
+    final rows = await _connection!.execute(query);
 
     for (final row in rows) {
       map.add(row.toColumnMap());
