@@ -7,10 +7,10 @@ import '../../../../mock.dart';
 
 void main() {
   late GetClientesHandler handler;
-  late MockGetClientesUserCase mockGetClientesUserCase;
+  late MockGetClientesUseCase mockGetClientesUserCase;
 
   setUpAll(() {
-    mockGetClientesUserCase = MockGetClientesUserCase();
+    mockGetClientesUserCase = MockGetClientesUseCase();
     handler = GetClientesHandler(getClientesUseCase: mockGetClientesUserCase);
   });
 

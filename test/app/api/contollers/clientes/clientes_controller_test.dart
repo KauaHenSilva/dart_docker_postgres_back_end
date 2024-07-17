@@ -11,10 +11,16 @@ import '../../../../mock.dart';
 void main() {
   late ClientesController clientesController;
   late GetClientesUseCase getClientesUseCase;
+  late AddClientesUseCase addClientesUseCase;
 
   setUp(() {
-    getClientesUseCase = MockGetClientesUserCase();
-    clientesController = ClientesController(getClientesUseCase: getClientesUseCase);
+    getClientesUseCase = MockGetClientesUseCase();
+    addClientesUseCase = MockAddClientesUseCase();
+
+    clientesController = ClientesController(
+      getClientesUseCase: getClientesUseCase,
+      addClientesUseCase: addClientesUseCase,
+    );
   });
 
   group('ClientesController', () {
@@ -26,6 +32,12 @@ void main() {
         "clienteControler deve conter um metodo 'GET' para o handler GetClientesHandler",
         () async {
       expect(clientesController.handlers['GET'], isA<GetClientesHandler>());
+    });
+
+    test(
+        "clienteControler deve conter um metodo 'POST' para o handler AddClientesHandler",
+        () async {
+      expect(clientesController.handlers['POST'], isA<AddClientesHandler>());
     });
   });
 }
