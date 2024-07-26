@@ -5,6 +5,7 @@ import 'package:mocktail/mocktail.dart';
 
 class MockGetClientesUseCase extends Mock implements GetClientesUseCase {}
 class MockGetClientesGateway extends Mock implements GetClientesGateway {}
+class MockGetClienteByEmailGateway extends Mock implements GetClienteByEmailGateway {}
 
 class MockAddClientesUseCase extends Mock implements AddClienteUseCase {}
 class MockAddClienteGateway extends Mock implements AddClienteGateway {}

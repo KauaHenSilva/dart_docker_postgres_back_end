@@ -11,3 +11,5 @@ part 'handlers/clientes/add_clientes_handler.dart';
 
 part 'dto/cliente_output_dto.dart';
 part 'dto/cliente_input_dto.dart';
+
+part 'message/mensage_error.dart';

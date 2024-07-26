@@ -4,6 +4,7 @@ enum StatusHandler {
   ok,
   created,
   internalServerError,
+  badRequest,
 }
 
 class RequestParemets {

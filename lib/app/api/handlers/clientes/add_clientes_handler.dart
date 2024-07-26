@@ -6,14 +6,24 @@ class AddClientesHandler extends Handlers {
   AddClientesHandler({required this.addClienesUserCase});
   @override
   Future<ResponseHandler> call(RequestParemets body) async {
-    return ResponseHandler(
+    try {
+      final cliente = ClienteInputDTO.toEntity(body.body!);
+      final creatCliente = await addClienesUserCase(cliente);
+      return ResponseHandler(
         status: StatusHandler.created,
-        body: ClienteOutputDTO(
-          id: 1,
-          email: 'email',
-          imageCapaURL: 'imageCapaURL',
-          nome: 'nome',
-          pix: 'pix',
-        ));
+        body: ClienteOutputDTO.toDTO(creatCliente),
+      );
+      
+    } on ClienteEmailExistException {
+      return ResponseHandler(
+        status: StatusHandler.badRequest,
+        body: MessageError('Email já cadastrado'),
+      );
+    } catch (e) {
+      return ResponseHandler(
+        status: StatusHandler.internalServerError,
+        body: e.toString(),
+      );
+    }
   }
 }
