@@ -28,15 +28,12 @@ class PostgreSQL implements MyConnection {
 
     List<Map<String, dynamic>> map = [];
 
-    final rows = await _connection!.execute(query);
+    final rows = await _connection!.execute(Sql.named(query), parameters: params);
 
     for (final row in rows) {
       map.add(row.toColumnMap());
     }
 
-    if (map.isEmpty) {
-      throw Exception('Nenhum registro encontrado');
-    }
     return map;
   }
 }

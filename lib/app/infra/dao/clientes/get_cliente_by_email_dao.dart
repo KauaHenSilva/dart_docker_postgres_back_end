@@ -7,7 +7,7 @@ class GetClienteByEmailDAO implements GetClienteByEmailGateway {
   @override
   Future<Cliente?> call(String email) async {
     try {
-      final rows = await connection.query('SELECT * FROM clientes WHERE email = @email', {'email': email});
+      final rows = await connection.query('SELECT * FROM clientes WHERE email=@email', {'email': email});
       
       if (rows.isEmpty) return null;
       return rows.map(ClienteDB.fromMap).first;
