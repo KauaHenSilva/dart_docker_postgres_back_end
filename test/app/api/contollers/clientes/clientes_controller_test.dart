@@ -11,7 +11,7 @@ import '../../../../mock.dart';
 void main() {
   late ClientesController clientesController;
   late GetClientesUseCase getClientesUseCase;
-  late AddClientesUseCase addClientesUseCase;
+  late AddClienteUseCase addClientesUseCase;
 
   setUp(() {
     getClientesUseCase = MockGetClientesUseCase();

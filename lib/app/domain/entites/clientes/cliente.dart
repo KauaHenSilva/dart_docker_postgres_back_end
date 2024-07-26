@@ -4,13 +4,15 @@ class Cliente {
   final int id;
   final String nome;
   final String email;
-  final String telefone;
+  final String imageCapaURL;
+  final String pix;
 
   Cliente({
     required this.id,
     required this.nome,
     required this.email,
-    required this.telefone,
+    required this.imageCapaURL,
+    required this.pix,
   });
 
   static Cliente fromMap(Map<String, dynamic> row) {
@@ -18,7 +20,8 @@ class Cliente {
       id: row['id'],
       nome: row['nome'],
       email: row['email'],
-      telefone: row['telefone'],
+      imageCapaURL: row['imageCapaURL'],
+      pix: row['pix'],
     );
   }
 }

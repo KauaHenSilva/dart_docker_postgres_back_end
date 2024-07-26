@@ -1,5 +1,5 @@
 part of '../../domain.dart';
 
-abstract class AddClientesUseCase {
+abstract class AddClienteUseCase {
   Future<Cliente> call(Cliente cliente);
 }

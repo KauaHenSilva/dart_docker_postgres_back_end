@@ -16,7 +16,7 @@ class ShelfAdapter {
 
     for (final interHandlers in handlers.entries) {
       router.add(interHandlers.key, route, (Request request) async {
-        final handler = await interHandlers.value();
+        final handler = await interHandlers.value(RequestParemets());
 
         switch (handler.status) {
           case StatusHandler.ok:

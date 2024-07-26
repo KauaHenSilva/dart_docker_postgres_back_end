@@ -22,16 +22,20 @@ void main() {
         (_) async => <Map<String, dynamic>>[
           {
             'id': 1,
-            'nome': 'Fulano',
-            'email': 'email@email.com',
-            'telefone': '999999999'
+            'nome': 'nome',
+            'email': 'email',
+            'imageCapaURL': 'imageCapaURL',
+            'pix': 'pix',
           },
         ],
       );
-      when(() => mockConnection.close()).thenAnswer((_) async => Completer().complete());
+
+      when(() => mockConnection.close())
+          .thenAnswer((_) async => Completer().complete());
       final result = await getClientesDao.call();
-      
+
       expect(result, isA<List<Cliente>>());
     });
+
   });
 }

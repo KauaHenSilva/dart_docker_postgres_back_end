@@ -2,7 +2,7 @@ part of '../../api.dart';
 
 class ClientesController implements Controller {
   final GetClientesUseCase getClientesUseCase;
-  final AddClientesUseCase addClientesUseCase;
+  final AddClienteUseCase addClientesUseCase;
   
   ClientesController({
     required this.getClientesUseCase,
