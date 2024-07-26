@@ -16,13 +16,20 @@ class ShelfAdapter {
 
     for (final interHandlers in handlers.entries) {
       router.add(interHandlers.key, route, (Request request) async {
-        final handler = await interHandlers.value(RequestParemets());
+        final payload = await request.readAsString();
+        final handler = await interHandlers.value(RequestParemets(
+          body: payload.isNotEmpty ? jsonDecode(payload) : null,
+        ));
 
         switch (handler.status) {
           case StatusHandler.ok:
             return ResponseJSON.ok(handler.body);
           case StatusHandler.internalServerError:
             return Response.internalServerError();
+          case StatusHandler.created:
+            return ResponseJSON.created(handler.body);
+          case StatusHandler.badRequest:
+            return Response.badRequest();
           default:
             return Response.internalServerError();
         }
