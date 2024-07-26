@@ -9,7 +9,7 @@ class GetClientesDAO implements GetClientesGateway {
     try {
       final rows = await connection.query('SELECT * FROM clientes');
 
-      if (rows == null) return <Cliente>[];
+      if (rows.isEmpty) return <Cliente>[];
       return rows.map(ClienteDB.fromMap).toList();
     } finally {
       await connection.close();

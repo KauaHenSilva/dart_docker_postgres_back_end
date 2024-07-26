@@ -8,21 +8,21 @@ import 'package:test/test.dart';
 import '../../../../mock.dart';
 
 void main() {
-  late GetClienteByEmailDAO getClienteByEmailDAO;
+  late AddClienteDao addClienteDao;
   late MockConnection connection;
 
   setUpAll(() {
     connection = MockConnection();
-    getClienteByEmailDAO = GetClienteByEmailDAO(connection: connection);
+    addClienteDao = AddClienteDao(connection: connection);
   });
 
   setUp(() {
-    when(() => connection.close()).thenAnswer((_) async => Completer<void>().complete());
+    when(() => connection.close())
+        .thenAnswer((_) async => Completer<void>().complete());
   });
 
-  group('GetClienteByEmailDaoTest', () {
-
-    test('Deve retornar um cliente', () async {
+  group('AddClienteDao', () {
+    test('deve adicionar um cliente', () async {
       when(() => connection.query(any(), any())).thenAnswer((_) async => [
             {
               'id': 1,
@@ -33,15 +33,8 @@ void main() {
             }
           ]);
 
-      final cliente = await getClienteByEmailDAO('email');
-      expect(cliente, isA<Cliente>());
-    });
-
-    test('Deve retornar NULL', () async {
-      when(() => connection.query(any(), any())).thenAnswer((_) async => []);
-
-      final cliente = await getClienteByEmailDAO('email');
-      expect(cliente, isNull);
+      final result = await addClienteDao(cliente);
+      expect(result, isA<Cliente>());
     });
   });
 }
