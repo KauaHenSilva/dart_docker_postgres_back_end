@@ -14,14 +14,4 @@ class Cliente {
     required this.imageCapaURL,
     required this.pix,
   });
-
-  static Cliente fromMap(Map<String, dynamic> row) {
-    return Cliente(
-      id: row['id'],
-      nome: row['nome'],
-      email: row['email'],
-      imageCapaURL: row['imageCapaURL'],
-      pix: row['pix'],
-    );
-  }
 }

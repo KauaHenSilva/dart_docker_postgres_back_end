@@ -8,7 +8,9 @@ class GetClientesDAO implements GetClientesGateway {
   Future<List<Cliente>> call() async {
     try {
       final rows = await connection.query('SELECT * FROM clientes');
-      return rows.map(Cliente.fromMap).toList();
+
+      if (rows == null) return <Cliente>[];
+      return rows.map(ClienteDB.fromMap).toList();
     } finally {
       await connection.close();
     }

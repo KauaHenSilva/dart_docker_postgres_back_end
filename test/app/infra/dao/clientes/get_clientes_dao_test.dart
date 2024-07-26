@@ -16,6 +16,10 @@ void main() {
     getClientesDao = GetClientesDAO(connection: mockConnection);
   });
 
+  setUp(() {
+    when(() => mockConnection.close()).thenAnswer((_) async => Completer<void>().complete());
+  });
+
   group('GetClientesDao', () {
     test('Deve retonar uma lista de clientes', () async {
       when(() => mockConnection.query(any())).thenAnswer(
@@ -24,18 +28,14 @@ void main() {
             'id': 1,
             'nome': 'nome',
             'email': 'email',
-            'imageCapaURL': 'imageCapaURL',
+            'image_capa_url': 'image_capa_url',
             'pix': 'pix',
           },
         ],
       );
 
-      when(() => mockConnection.close())
-          .thenAnswer((_) async => Completer().complete());
-      final result = await getClientesDao.call();
-
+      final result = await getClientesDao();
       expect(result, isA<List<Cliente>>());
     });
-
   });
 }

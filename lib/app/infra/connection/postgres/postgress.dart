@@ -34,6 +34,9 @@ class PostgreSQL implements MyConnection {
       map.add(row.toColumnMap());
     }
 
+    if (map.isEmpty) {
+      throw Exception('Nenhum registro encontrado');
+    }
     return map;
   }
 }

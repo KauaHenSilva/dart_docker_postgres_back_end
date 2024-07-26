@@ -6,7 +6,7 @@ abstract class ClienteInputDTO {
       id: 0,
       nome: map['nome'],
       email: map['email'],
-      imageCapaURL: map['imageCapaURL'],
+      imageCapaURL: map['image_capa_url'],
       pix: map['pix'],
     );
   }

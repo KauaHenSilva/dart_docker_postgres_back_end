@@ -34,7 +34,7 @@ class ClienteOutputDTO {
       'id': id,
       'nome': nome,
       'email': email,
-      'imageCapaURL': imageCapaURL,
+      'image_capa_url': imageCapaURL,
       'pix': pix,
     };
   }
