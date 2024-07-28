@@ -15,7 +15,7 @@ class PostgreSQL implements MyConnection {
   ]) async {
     _connection = await Connection.open(
       Endpoint(
-        host: 'localhost',
+        host: 'dbPostgres',
         database: 'postgres',
         username: 'postgres',
         password: 'docker',
