@@ -5,12 +5,13 @@ class GetClientesHandler extends Handlers {
   GetClientesHandler({required this.getClientesUseCase});
 
   @override
-  Future<ResponseHandler> call() async {
+  // ignore: avoid_renaming_method_parameters
+  Future<ResponseHandler> call(RequestParemets paremets) async {
     try {
       final clientes = await getClientesUseCase.call();
-      return ResponseHandler<List<ClientesOutputDTO>>(
+      return ResponseHandler<List<ClienteOutputDTO>>(
         status: StatusHandler.ok,
-        body: ClientesOutputDTO.toCollectionDTO(clientes),
+        body: ClienteOutputDTO.toCollectionDTO(clientes),
       );
     } catch (e) {
       return ResponseHandler(

@@ -2,7 +2,15 @@ part of '../api.dart';
 
 enum StatusHandler {
   ok,
+  created,
   internalServerError,
+  badRequest,
+}
+
+class RequestParemets {
+  final Map<String, dynamic>? body;
+
+  RequestParemets({this.body});
 }
 
 class ResponseHandler<T> {
@@ -16,5 +24,5 @@ class ResponseHandler<T> {
 }
 
 abstract class Handlers {
-  Future<ResponseHandler> call();
+  Future<ResponseHandler> call(RequestParemets body);
 }

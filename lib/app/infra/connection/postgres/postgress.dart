@@ -15,7 +15,7 @@ class PostgreSQL implements MyConnection {
   ]) async {
     _connection = await Connection.open(
       Endpoint(
-        host: 'localhost',
+        host: 'db',
         database: 'postgres',
         username: 'postgres',
         password: 'docker',
@@ -28,7 +28,7 @@ class PostgreSQL implements MyConnection {
 
     List<Map<String, dynamic>> map = [];
 
-    final rows = await _connection!.execute(query);
+    final rows = await _connection!.execute(Sql.named(query), parameters: params);
 
     for (final row in rows) {
       map.add(row.toColumnMap());
